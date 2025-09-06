@@ -13,9 +13,29 @@ Run `pip install qrcode`
 - Execute `python3 QR_code_generator.py`
 
 ### Screenshot showing the sample use of the script
-<p align="center">
-  <a href="output 1.png"><img src="https://user-images.githubusercontent.com/85709371/151921721-132e76c1-1604-49ad-9234-1ef3cc9ac45b.png" alt="url_qrcode"></a>
-</p>
+import qrcode
+
+input_URL = "https://www.google.com/"
+
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=15,
+    image_size=20,
+    border=0,
+)
+
+qr.add_data(input_URL)
+qr.make(fit=True)
+
+img = qr.make_image(fill_color="Blue", back_color="White")
+img.save("url_qrcode.png")
+
+print(qr.data_list)
+### Output
+<img width="375" height="375" alt="url_qrcode" src="https://github.com/user-attachments/assets/27f31b38-b838-4144-921a-89b16c503513" />
+
 
 ## *Author Name*
-[Vikrant](https://github.com/vikrant-v28)
+Naresh S
+212224240101
